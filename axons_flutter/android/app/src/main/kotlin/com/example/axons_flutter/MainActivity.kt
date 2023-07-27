@@ -1,4 +1,4 @@
-package com.example.axons_flutter
+package com.axons.app
 
 import io.flutter.embedding.android.FlutterActivity
 

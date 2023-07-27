@@ -1,0 +1,5 @@
+#include "Generated.xcconfig"
+
+FLUTTER_TARGET=lib/main_dev.dart
+PRODUCT_BUNDLE_IDENTIFIER=com.axons.app.dev
+APP_NAME=Flavor dev
