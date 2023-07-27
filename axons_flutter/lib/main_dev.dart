@@ -1,6 +1,5 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'env configs/environment.dart';
+import 'env_configs/environment.dart';
 import 'my_app.dart';
 
 void main() async {
