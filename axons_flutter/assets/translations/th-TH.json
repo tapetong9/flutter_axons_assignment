@@ -13,5 +13,22 @@
             "forgot_password": "ลืมรหัสผ่าน",
             "login_button": "เข้าสู่ระบบ"
         }
+    },
+    "register_page": {
+        "title": "ลงทะเบียนสมัครสมาชิก",
+        "subtitle": "เพื่อสิทธิพิเศษต่างๆมากมาย",
+        "fname": "ชื่อ",
+        "lname":"นามสกุล",
+        "province":"จังหวัด",
+        "tel":"เบอร์โทรศัพท์",
+        "placeholder": {
+            "fname": "ชื่อของคุณ",
+            "lname": "นามสกุลของคุณ",
+            "tel": "เบอร์โทรศัพท์ของคุณ",
+            "province": "กรุณาเลือกจังหวัด"
+        },
+        "or": "หรือ",
+        "register_button": "ยืนยันสมัครสมาชิก",
+        "login_with_username_button": "เข้าสู่ระบบด้วย username AD"
     }
 }

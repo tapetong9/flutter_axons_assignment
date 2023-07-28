@@ -8,9 +8,10 @@ class TextInputWithLabel extends StatelessWidget {
   final String? placeholderText;
   final bool obscureText;
   final bool autofocus;
+  final bool required;
   final FocusNode? focusNode;
   final String? Function(String?)? validator;
-  final Function(String) onChanged;
+  final Function(String)? onChanged;
   final Function()? onEditingComplete;
   final Function(String)? onFieldSubmitted;
 
@@ -21,9 +22,10 @@ class TextInputWithLabel extends StatelessWidget {
     this.placeholderText,
     this.obscureText = false,
     this.autofocus = false,
+    this.required = false,
     this.focusNode,
     this.validator,
-    required this.onChanged,
+    this.onChanged,
     this.onEditingComplete,
     this.onFieldSubmitted,
   });
@@ -33,7 +35,13 @@ class TextInputWithLabel extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: Theme.of(context).textTheme.bodyMedium),
+        Row(
+          children: [
+            Text(label, style: Theme.of(context).textTheme.bodyMedium),
+            if (required) const HSpacer(4),
+            if (required) Text("*", style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.red.shade900)),
+          ],
+        ),
         const VSpacer(4.0),
         TextInputField(
           initialValue: initialValue,

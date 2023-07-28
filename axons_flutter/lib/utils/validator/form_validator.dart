@@ -28,4 +28,12 @@ class FormValidator {
 
     return null;
   };
+
+  static String? Function(String?) required = (value) {
+    if (value == null || value.isEmpty) {
+      return "กรุณาระบุข้อมูล";
+    }
+
+    return null;
+  };
 }

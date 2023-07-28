@@ -9,7 +9,7 @@ class TextInputField extends StatefulWidget {
   final bool autofocus;
   final FocusNode? focusNode;
   final String? Function(String?)? validator;
-  final Function(String) onChanged;
+  final Function(String)? onChanged;
   final Function()? onEditingComplete;
   final Function(String)? onFieldSubmitted;
 
@@ -21,7 +21,7 @@ class TextInputField extends StatefulWidget {
     this.autofocus = false,
     this.focusNode,
     this.validator,
-    required this.onChanged,
+    this.onChanged,
     this.onEditingComplete,
     this.onFieldSubmitted,
   });
@@ -54,6 +54,8 @@ class _TextInputFieldState extends State<TextInputField> {
       style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: textColor),
       validator: widget.validator,
       decoration: InputDecoration(
+        filled: true,
+        fillColor: Colors.white,
         hintText: widget.placeholderText,
         contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
         enabledBorder: OutlineInputBorder(

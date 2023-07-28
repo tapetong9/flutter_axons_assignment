@@ -7,7 +7,9 @@ import '../../../widgets/button/primary_button.dart';
 import '../../../widgets/textFormField/text_input_with_label.dart';
 
 class LoginForm extends StatefulWidget {
-  const LoginForm({super.key});
+  final VoidCallback onLogInSuccess;
+
+  const LoginForm({super.key, required this.onLogInSuccess});
 
   @override
   State<LoginForm> createState() => _LoginFormState();
@@ -71,10 +73,8 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   void _onTapLogInButton() {
-    log('[onTapLoginButton]: $_email | $_password');
-
     if (_formKey.currentState!.validate()) {
-      log("navigate to home page.");
+      widget.onLogInSuccess();
     } else {
       log("Invalid email or password");
     }

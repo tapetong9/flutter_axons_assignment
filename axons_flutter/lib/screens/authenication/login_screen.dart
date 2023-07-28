@@ -1,4 +1,6 @@
-import 'dart:developer';
+import 'package:axons_flutter/screens/authenication/register_screen.dart';
+import 'package:axons_flutter/screens/home/home_screen.dart';
+import 'package:axons_flutter/utils/navigation/navigate_util.dart';
 import 'package:axons_flutter/widgets/button/primary_button.dart';
 import 'package:axons_flutter/widgets/containment/spacer.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -19,6 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
     const backgroundDecoration = BoxDecoration(image: DecorationImage(image: backgroundAsset, fit: BoxFit.cover));
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         width: double.infinity,
         decoration: backgroundDecoration,
@@ -41,12 +44,12 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const VSpacer(62),
               PrimaryButton(
-                onPressed: onTapLogInButton,
+                onPressed: _onTapLogInButton,
                 title: tr("login_page.login_button"),
               ),
               const VSpacer(8),
               PrimaryButton(
-                onPressed: onTapRegisterButton,
+                onPressed: _routeToRegistorScreen,
                 title: tr("login_page.register_button"),
                 theme: PrimaryButtonTheme.white,
               ),
@@ -66,16 +69,20 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void onTapLogInButton() {
+  void _routeToHomeScreen() => NavigateUtil().push(context, to: const HomeScreen(), type: PushType.clearStack);
+
+  void _routeToRegistorScreen() => NavigateUtil().push(context, to: const RegisterFormScreen());
+
+  void _onTapLogInButton() {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(25.0))),
       builder: (context) {
-        return const LoginForm();
+        return LoginForm(
+          onLogInSuccess: _routeToHomeScreen,
+        );
       },
     );
   }
-
-  void onTapRegisterButton() => log('onTapRegisterButton');
 }
