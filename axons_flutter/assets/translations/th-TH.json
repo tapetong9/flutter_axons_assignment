@@ -1,3 +1,17 @@
 {
-    
+    "login_page": {
+        "title": "จัดการฟาร์มกุ้ง",
+        "subtitle": "ยินดีต้อนรับเข้าสู่ระบบจัดการจองครบวงจร\nเพื่อคนเกษตรกรไทย ด้วยนวัตรกรรมระดับสากล",
+        "login_button": "เข้าสู่ระบบ",
+        "register_button": "สมัครสมาชิก",
+        "version": "Version {}",
+        "copyright": "© 2022 AXONS. All Rights Reserved.",
+        "form": {
+            "title": "เข้าสู่ระบบ",
+            "username": "ชื่อผู้ใช้งาน",
+            "password": "รหัสผ่าน",
+            "forgot_password": "ลืมรหัสผ่าน",
+            "login_button": "เข้าสู่ระบบ"
+        }
+    }
 }
