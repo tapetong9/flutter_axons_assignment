@@ -19,7 +19,6 @@ class RegisterFormScreen extends StatefulWidget {
 
 class _RegisterFormScreenState extends State<RegisterFormScreen> {
   final _formKey = GlobalKey<FormState>();
-
   final FocusNode _fnameFocusNode = FocusNode();
   final FocusNode _lnameFocusNode = FocusNode();
   final FocusNode _provinceFocusNode = FocusNode();

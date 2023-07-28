@@ -23,7 +23,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isLightBackground = backgroundColor == Colors.white;
+    final isLightBackground = backgroundColor == Colors.white || backgroundColor == Colors.transparent;
+
     return Container(
       color: backgroundColor,
       child: AppBar(

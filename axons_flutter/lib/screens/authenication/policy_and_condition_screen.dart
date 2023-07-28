@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/appbar/custom_appbar.dart';
 import '../../widgets/button/primary_button.dart';
+import 'create_pincode_screen.dart';
 
 class PolicyAndConditionScreen extends StatefulWidget {
   const PolicyAndConditionScreen({super.key});
@@ -87,7 +88,11 @@ class _PolicyAndConditionScreenState extends State<PolicyAndConditionScreen> {
     });
   }
 
-  void _onTapAcceptButton() {}
+  void _onTapAcceptButton() {
+    if (_accepted) {
+      NavigateUtil().push(context, to: const CreatePinCodeScreen());
+    }
+  }
 
   void _onTapCancelButton() {
     NavigateUtil().pop(context);
