@@ -16,7 +16,7 @@ class OtpVerificationScreen extends StatefulWidget {
 }
 
 class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
-  final int _initialDuration = 10;
+  final int _initialDuration = 60;
   Timer? _timer;
   String _inputOtp = "";
   int _countDuration = 0;

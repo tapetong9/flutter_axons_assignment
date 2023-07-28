@@ -13,11 +13,6 @@ class DioManager {
   late final Dio dio;
 
   DioManager._init() {
-    dio = Dio(
-      BaseOptions(
-        baseUrl: _baseUrl,
-        followRedirects: true,
-      ),
-    );
+    dio = Dio(BaseOptions(baseUrl: _baseUrl, followRedirects: true));
   }
 }

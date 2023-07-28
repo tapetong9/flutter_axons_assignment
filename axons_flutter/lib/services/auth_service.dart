@@ -8,10 +8,7 @@ class AuthService extends IAuthService {
   AuthService(super.dioManager);
 
   @override
-  Future<String?> login({
-    required String email,
-    required String password,
-  }) async {
+  Future<String?> login({required String email, required String password}) async {
     var response = await dioManager.dio.post(
       ServiceEnums.login.path,
       data: jsonEncode(<String, dynamic>{
