@@ -26,7 +26,6 @@ class NavigateUtil {
 
   void pop(
     BuildContext context, {
-    required Widget to,
     PopType type = PopType.pop,
   }) {
     switch (type) {

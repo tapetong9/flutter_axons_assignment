@@ -8,6 +8,8 @@ class PrimaryButton extends StatelessWidget {
   final double height;
   final bool fitWidth;
   final EdgeInsets margin;
+  final bool disabled;
+  final bool showBorder;
   final PrimaryButtonTheme theme;
 
   const PrimaryButton({
@@ -16,6 +18,8 @@ class PrimaryButton extends StatelessWidget {
     this.height = 48.0,
     this.fitWidth = false,
     this.margin = const EdgeInsets.all(0),
+    this.disabled = false,
+    this.showBorder = false,
     this.theme = PrimaryButtonTheme.primary,
     this.onPressed,
   });
@@ -30,9 +34,14 @@ class PrimaryButton extends StatelessWidget {
       width: fitWidth ? null : double.infinity,
       height: height,
       child: FilledButton(
-        onPressed: onPressed,
+        onPressed: disabled ? null : onPressed,
         style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+            side: BorderSide(
+              color: showBorder ? Theme.of(context).primaryColor : Colors.transparent,
+            ),
+          ),
           backgroundColor: backgroundColor,
           foregroundColor: textColor,
         ),

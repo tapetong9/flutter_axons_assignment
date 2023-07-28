@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
+import 'package:axons_flutter/screens/authenication/policy_and_condition_screen.dart';
+import 'package:axons_flutter/utils/navigation/navigate_util.dart';
 import 'package:axons_flutter/widgets/appbar/custom_appbar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +38,9 @@ class _RegisterFormScreenState extends State<RegisterFormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
-      appBar: CustomAppBar(actions: [IconButton(onPressed: _onTapInfoButton, icon: const Icon(Icons.info_outline))]),
+      appBar: CustomAppBar(actions: [
+        IconButton(onPressed: _onTapInfoButton, icon: const Icon(Icons.info_outline)),
+      ]),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Form(
@@ -136,6 +140,7 @@ class _RegisterFormScreenState extends State<RegisterFormScreen> {
   void _onTapSubmitButton() {
     FocusScope.of(context).unfocus();
 
-    if (_formKey.currentState!.validate()) {}
+    // if (_formKey.currentState!.validate()) {}
+    NavigateUtil().push(context, to: const PolicyAndConditionScreen());
   }
 }
