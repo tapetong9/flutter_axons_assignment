@@ -21,27 +21,35 @@ class MyApp extends StatelessWidget {
     return BlocProvider<AuthBloc>(
       create: (_) => authBloc,
       child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          localizationsDelegates: context.localizationDelegates,
-          supportedLocales: context.supportedLocales,
-          locale: context.locale,
-          title: appName,
-          home: const SplashScreen(),
-          theme: ThemeData(
-            brightness: Brightness.light,
-            primaryColor: const Color.fromRGBO(7, 78, 159, 1.0),
-            primarySwatch: const Color.fromRGBO(7, 78, 159, 1.0).materialColor(),
-            fontFamily: 'IBMPlexSansThai',
-            textTheme: const TextTheme(
-              titleLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
-              titleMedium: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
-              titleSmall: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-              bodyLarge: TextStyle(fontSize: 18),
-              bodyMedium: TextStyle(fontSize: 16),
-              bodySmall: TextStyle(fontSize: 12),
-              labelLarge: TextStyle(fontSize: 18, fontWeight: FontWeight.w600), // Button
-            ),
-          )),
+        builder: (BuildContext context, Widget? child) {
+          final MediaQueryData data = MediaQuery.of(context);
+          return MediaQuery(
+            data: data.copyWith(textScaleFactor: 1.0),
+            child: child!,
+          );
+        },
+        debugShowCheckedModeBanner: false,
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        title: appName,
+        home: const SplashScreen(),
+        theme: ThemeData(
+          brightness: Brightness.light,
+          primaryColor: const Color.fromRGBO(7, 78, 159, 1.0),
+          primarySwatch: const Color.fromRGBO(7, 78, 159, 1.0).materialColor(),
+          fontFamily: 'IBMPlexSansThai',
+          textTheme: const TextTheme(
+            titleLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+            titleMedium: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+            titleSmall: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            bodyLarge: TextStyle(fontSize: 18),
+            bodyMedium: TextStyle(fontSize: 16),
+            bodySmall: TextStyle(fontSize: 12),
+            labelLarge: TextStyle(fontSize: 18, fontWeight: FontWeight.w600), // Button
+          ),
+        ),
+      ),
     );
   }
 }

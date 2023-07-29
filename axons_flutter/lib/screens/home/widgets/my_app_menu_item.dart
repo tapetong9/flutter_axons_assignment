@@ -21,6 +21,7 @@ class MyAppMenuItem extends StatelessWidget {
             title,
             style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             maxLines: 2,
+            textAlign: TextAlign.center,
           ),
         ],
       ),

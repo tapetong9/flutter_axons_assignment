@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:axons_flutter/extensions/context_extensions.dart';
 import 'package:axons_flutter/extensions/image_extensions.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -50,7 +52,7 @@ class _MyAppMenuListState extends State<MyAppMenuList> {
       children: [
         CarouselSlider(
           options: CarouselOptions(
-            height: 98.0,
+            height: 112.0,
             viewportFraction: 1 / 3,
             enableInfiniteScroll: true,
             onPageChanged: (index, reason) {

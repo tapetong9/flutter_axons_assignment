@@ -62,7 +62,6 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
               const VSpacer(29.0),
               Row(
                 mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
                     child: TextInputField(
@@ -75,13 +74,11 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                     ),
                   ),
                   const HSpacer(8.0),
-                  SizedBox(
-                    width: 112,
-                    child: PrimaryButton(
-                      disabled: !_canRequestOtp,
-                      onPressed: _onTapRequestOtpButton,
-                      title: tr("otp_verification_page.request_button"),
-                    ),
+                  PrimaryButton(
+                    fitWidth: true,
+                    disabled: !_canRequestOtp,
+                    onPressed: _onTapRequestOtpButton,
+                    title: tr("otp_verification_page.request_button"),
                   ),
                 ],
               ),
