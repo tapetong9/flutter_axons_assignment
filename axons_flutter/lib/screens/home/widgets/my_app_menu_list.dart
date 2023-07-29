@@ -1,11 +1,8 @@
-import 'dart:developer';
-
 import 'package:axons_flutter/extensions/context_extensions.dart';
 import 'package:axons_flutter/extensions/image_extensions.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-
 import '../../../models/menu_model.dart';
 import 'my_app_menu_item.dart';
 
@@ -17,38 +14,38 @@ class MyAppMenuList extends StatefulWidget {
 }
 
 class _MyAppMenuListState extends State<MyAppMenuList> {
-  int _current = 0;
   final CarouselController _controller = CarouselController();
+  int _current = 0;
+
+  final _menus = [
+    MenuModel(
+      assetPath: "smart_farm_menu.png".assetPath,
+      title: tr("home_page.my_app_menu.smart_farm"),
+    ),
+    MenuModel(
+      assetPath: "market_plan_menu.png".assetPath,
+      title: tr("home_page.my_app_menu.market_plan"),
+    ),
+    MenuModel(
+      assetPath: "customer_feedback_menu.png".assetPath,
+      title: tr("home_page.my_app_menu.customer_feedback"),
+    ),
+    MenuModel(
+      assetPath: "smart_farm_menu.png".assetPath,
+      title: tr("home_page.my_app_menu.smart_farm"),
+    ),
+    MenuModel(
+      assetPath: "market_plan_menu.png".assetPath,
+      title: tr("home_page.my_app_menu.market_plan"),
+    ),
+    MenuModel(
+      assetPath: "customer_feedback_menu.png".assetPath,
+      title: tr("home_page.my_app_menu.customer_feedback"),
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    final _menus = [
-      MenuModel(
-        assetPath: "smart_farm_menu.png".assetPath,
-        title: tr("home_page.my_app_menu.smart_farm"),
-      ),
-      MenuModel(
-        assetPath: "market_plan_menu.png".assetPath,
-        title: tr("home_page.my_app_menu.market_plan"),
-      ),
-      MenuModel(
-        assetPath: "customer_feedback_menu.png".assetPath,
-        title: tr("home_page.my_app_menu.customer_feedback"),
-      ),
-      MenuModel(
-        assetPath: "smart_farm_menu.png".assetPath,
-        title: tr("home_page.my_app_menu.smart_farm"),
-      ),
-      MenuModel(
-        assetPath: "market_plan_menu.png".assetPath,
-        title: tr("home_page.my_app_menu.market_plan"),
-      ),
-      MenuModel(
-        assetPath: "customer_feedback_menu.png".assetPath,
-        title: tr("home_page.my_app_menu.customer_feedback"),
-      ),
-    ];
-
     return Column(
       children: [
         CarouselSlider(

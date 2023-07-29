@@ -1,12 +1,12 @@
 import 'package:axons_flutter/extensions/context_extensions.dart';
 import 'package:axons_flutter/extensions/image_extensions.dart';
 import 'package:axons_flutter/screens/authenication/register_screen.dart';
-import 'package:axons_flutter/screens/home/home_screen.dart';
 import 'package:axons_flutter/utils/navigation/navigate_util.dart';
 import 'package:axons_flutter/widgets/button/primary_button.dart';
 import 'package:axons_flutter/widgets/containment/spacer.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../home/main_tabbar_screen.dart';
 import 'widgets/login_form.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void _routeToHomeScreen() => NavigateUtil().push(context, to: const HomeScreen(), type: PushType.clearStack);
+  void _routeToHomeScreen() => NavigateUtil().push(context, to: const MainTabbarScreen(), type: PushType.clearStack);
 
   void _routeToRegistorScreen() => NavigateUtil().push(context, to: const RegisterFormScreen());
 

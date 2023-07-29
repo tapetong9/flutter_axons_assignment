@@ -46,7 +46,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         iconTheme: IconThemeData(color: isLightBackground ? Colors.blueGrey : Colors.white),
         backgroundColor: Colors.transparent,
         actions: actions,
-        leading: showHambergerMenu ? IconButton(onPressed: () {}, icon: Icon(Icons.menu_outlined)) : null,
+        leading: showHambergerMenu ? IconButton(onPressed: () {}, icon: const Icon(Icons.menu_outlined)) : null,
       ),
     );
   }
