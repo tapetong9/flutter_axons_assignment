@@ -17,6 +17,7 @@ dependencies:
   dio: ^5.3.0
   equatable: ^2.0.5
   easy_localization: ^3.0.2
+  audioplayers: ^5.0.0
 
 dev_dependencies:
   flutter_test:
@@ -32,6 +33,7 @@ flutter:
     - assets/images/
     - assets/translations/
     - assets/launcher/
+    - assets/audios/
 
   fonts:
     - family: IBMPlexSansThai
