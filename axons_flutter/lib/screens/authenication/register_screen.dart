@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
+import 'package:axons_flutter/extensions/context_extensions.dart';
 import 'package:axons_flutter/screens/authenication/policy_and_condition_screen.dart';
 import 'package:axons_flutter/utils/navigation/navigate_util.dart';
 import 'package:axons_flutter/widgets/appbar/custom_appbar.dart';
@@ -55,9 +56,9 @@ class _RegisterFormScreenState extends State<RegisterFormScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const VSpacer(16),
-                      Text(tr("register_page.title"), style: Theme.of(context).textTheme.titleLarge),
+                      Text(tr("register_page.title"), style: context.textTheme.titleLarge),
                       const VSpacer(4),
-                      Text(tr("register_page.subtitle"), style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.blueGrey.shade600)),
+                      Text(tr("register_page.subtitle"), style: context.textTheme.bodyMedium?.copyWith(color: Colors.blueGrey.shade600)),
                       const VSpacer(16),
                     ],
                   ),
@@ -113,11 +114,11 @@ class _RegisterFormScreenState extends State<RegisterFormScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(tr("register_page.or"), style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.blueGrey.shade600)),
+                          Text(tr("register_page.or"), style: context.textTheme.titleSmall?.copyWith(color: Colors.blueGrey.shade600)),
                           const HSpacer(4),
                           InkWell(
                             onTap: _onTapLogInWithUsernameADButton,
-                            child: Text(tr("register_page.login_with_username_button"), style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Theme.of(context).primaryColor)),
+                            child: Text(tr("register_page.login_with_username_button"), style: context.textTheme.titleSmall?.copyWith(color: context.theme.primaryColor)),
                           ),
                         ],
                       ),

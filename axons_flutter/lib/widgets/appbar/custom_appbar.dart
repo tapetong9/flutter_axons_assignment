@@ -1,3 +1,4 @@
+import 'package:axons_flutter/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -30,10 +31,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: AppBar(
         title: Text(
           title,
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(color: isLightBackground ? null : Colors.white),
+          style: context.textTheme.titleMedium?.copyWith(color: isLightBackground ? null : Colors.white),
         ),
         systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: Theme.of(context).primaryColor,
+          statusBarColor: context.theme.primaryColor,
           statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
           statusBarBrightness: isLightBackground ? Brightness.light : Brightness.dark, // For iOS (dark icons)
         ),

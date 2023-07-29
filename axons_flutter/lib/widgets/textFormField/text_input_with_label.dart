@@ -1,3 +1,4 @@
+import 'package:axons_flutter/extensions/context_extensions.dart';
 import 'package:axons_flutter/widgets/containment/spacer.dart';
 import 'package:axons_flutter/widgets/textFormField/text_input_field.dart';
 import 'package:flutter/material.dart';
@@ -37,9 +38,9 @@ class TextInputWithLabel extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text(label, style: Theme.of(context).textTheme.bodyMedium),
+            Text(label, style: context.textTheme.bodyMedium),
             if (required) const HSpacer(4),
-            if (required) Text("*", style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.red.shade900)),
+            if (required) Text("*", style: context.textTheme.bodyMedium?.copyWith(color: Colors.red.shade900)),
           ],
         ),
         const VSpacer(4.0),

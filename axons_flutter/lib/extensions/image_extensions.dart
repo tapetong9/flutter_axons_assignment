@@ -1,3 +1,3 @@
 extension ImageExtensions on String {
-  String get toPng => "assets/images/$this.png";
+  String get assetPath => "assets/images/$this";
 }

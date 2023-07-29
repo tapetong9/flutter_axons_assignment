@@ -1,4 +1,6 @@
 import 'dart:developer';
+import 'package:axons_flutter/extensions/context_extensions.dart';
+import 'package:axons_flutter/extensions/image_extensions.dart';
 import 'package:axons_flutter/widgets/containment/spacer.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -31,9 +33,9 @@ class _LoginFormState extends State<LoginForm> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset("assets/images/drag_bar.png", width: 44),
+            Image.asset("drag_bar.png".assetPath, width: 44),
             const VSpacer(8),
-            Text(tr("login_page.form.title"), style: Theme.of(context).textTheme.titleLarge),
+            Text(tr("login_page.form.title"), style: context.textTheme.titleLarge),
             const VSpacer(16),
             TextInputWithLabel(
               label: tr("login_page.form.username"),
@@ -58,7 +60,7 @@ class _LoginFormState extends State<LoginForm> {
               alignment: Alignment.topRight,
               child: InkWell(
                 onTap: _onTapForgotPasswordButton,
-                child: Text(tr("login_page.form.forgot_password"), style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).primaryColor)),
+                child: Text(tr("login_page.form.forgot_password"), style: context.textTheme.bodyMedium?.copyWith(color: context.theme.primaryColor)),
               ),
             ),
             const VSpacer(24),

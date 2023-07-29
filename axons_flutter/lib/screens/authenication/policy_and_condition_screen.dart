@@ -1,3 +1,4 @@
+import 'package:axons_flutter/extensions/context_extensions.dart';
 import 'package:axons_flutter/utils/navigation/navigate_util.dart';
 import 'package:axons_flutter/widgets/containment/spacer.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -23,7 +24,7 @@ class _PolicyAndConditionScreenState extends State<PolicyAndConditionScreen> {
       backgroundColor: Colors.white,
       appBar: CustomAppBar(
         title: tr("policy_and_condition_page.title"),
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: context.theme.primaryColor,
       ),
       body: SafeArea(
         child: Container(

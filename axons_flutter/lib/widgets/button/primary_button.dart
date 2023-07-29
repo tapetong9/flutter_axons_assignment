@@ -1,3 +1,4 @@
+import 'package:axons_flutter/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 
 enum PrimaryButtonTheme { primary, white }
@@ -10,6 +11,7 @@ class PrimaryButton extends StatelessWidget {
   final EdgeInsets margin;
   final bool disabled;
   final bool showBorder;
+  final Icon? icon;
   final PrimaryButtonTheme theme;
 
   const PrimaryButton({
@@ -21,32 +23,53 @@ class PrimaryButton extends StatelessWidget {
     this.disabled = false,
     this.showBorder = false,
     this.theme = PrimaryButtonTheme.primary,
+    this.icon,
     this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
-    final backgroundColor = (theme == PrimaryButtonTheme.primary) ? Theme.of(context).primaryColor : Colors.white;
-    final textColor = (theme == PrimaryButtonTheme.primary) ? Colors.white : Theme.of(context).primaryColor;
-
     return Container(
       margin: margin,
       width: fitWidth ? null : double.infinity,
       height: height,
-      child: FilledButton(
-        onPressed: disabled ? null : onPressed,
-        style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-            side: BorderSide(
-              color: showBorder ? Theme.of(context).primaryColor : Colors.transparent,
-            ),
-          ),
-          backgroundColor: backgroundColor,
-          foregroundColor: textColor,
-        ),
-        child: Text(title),
-      ),
+      child: _buildButton(context),
     );
+  }
+
+  FilledButton _buildButton(BuildContext context) {
+    if (icon != null) {
+      return FilledButton.icon(
+        onPressed: _onPress,
+        style: _buttonStyle(context),
+        label: Text(title),
+        icon: icon!,
+      );
+    } else {
+      return FilledButton(
+        onPressed: _onPress,
+        style: _buttonStyle(context),
+        child: Text(title),
+      );
+    }
+  }
+
+  ButtonStyle _buttonStyle(BuildContext context) {
+    return ElevatedButton.styleFrom(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+        side: BorderSide(
+          color: showBorder ? context.theme.primaryColor : Colors.transparent,
+        ),
+      ),
+      backgroundColor: (theme == PrimaryButtonTheme.primary) ? context.theme.primaryColor : Colors.white,
+      foregroundColor: (theme == PrimaryButtonTheme.primary) ? Colors.white : context.theme.primaryColor,
+    );
+  }
+
+  void _onPress() {
+    if (!disabled) {
+      onPressed!();
+    }
   }
 }

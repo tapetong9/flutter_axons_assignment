@@ -1,4 +1,6 @@
 import 'dart:developer';
+import 'package:axons_flutter/extensions/context_extensions.dart';
+import 'package:axons_flutter/extensions/image_extensions.dart';
 import 'package:axons_flutter/screens/authenication/otp_verification_screen.dart';
 import 'package:axons_flutter/screens/authenication/widgets/pin_code_dot.dart';
 import 'package:axons_flutter/utils/navigation/navigate_util.dart';
@@ -34,26 +36,26 @@ class _CreatePinCodeScreenState extends State<CreatePinCodeScreen> {
                 child: Column(
                   children: [
                     Image.asset(
-                      "assets/images/pin_code_logo.png",
+                      "pin_code_logo.png".assetPath,
                       height: 150,
                       fit: BoxFit.fitHeight,
                     ),
                     const VSpacer(16.0),
                     Text(
                       _tmpPincode.isNotEmpty ? tr("create_pin_code_page.title_confirm") : tr("create_pin_code_page.title"),
-                      style: Theme.of(context).textTheme.titleLarge,
+                      style: context.textTheme.titleLarge,
                     ),
                     const VSpacer(8.0),
                     if (_errorMessage == null)
                       Text(
                         tr("create_pin_code_page.subtitle"),
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.blueGrey),
+                        style: context.textTheme.bodyMedium?.copyWith(color: Colors.blueGrey),
                         textAlign: TextAlign.center,
                       ),
                     if (_errorMessage != null)
                       Text(
                         tr(_errorMessage!),
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.red),
+                        style: context.textTheme.bodyMedium?.copyWith(color: Colors.red),
                         textAlign: TextAlign.center,
                       ),
                     const VSpacer(26.0),

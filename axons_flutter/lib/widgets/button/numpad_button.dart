@@ -1,3 +1,5 @@
+import 'package:axons_flutter/extensions/context_extensions.dart';
+import 'package:axons_flutter/extensions/image_extensions.dart';
 import 'package:flutter/material.dart';
 
 class NumpadButton extends StatefulWidget {
@@ -15,12 +17,12 @@ class _NumpadButtonState extends State<NumpadButton> {
 
   @override
   Widget build(BuildContext context) {
-    String assetPath = "assets/images/";
+    String assetName = "";
 
     if (widget.number == -1) {
-      assetPath += _isHighlight ? "del-b.png" : "del.png";
+      assetName = _isHighlight ? "del-b.png" : "del.png";
     } else {
-      assetPath += _isHighlight ? "${widget.number}b.png" : "${widget.number}.png";
+      assetName = _isHighlight ? "${widget.number}b.png" : "${widget.number}.png";
     }
 
     return Container(
@@ -34,12 +36,12 @@ class _NumpadButtonState extends State<NumpadButton> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(4),
             side: BorderSide(
-              color: _isHighlight ? Theme.of(context).primaryColor : Colors.grey.shade300,
+              color: _isHighlight ? context.theme.primaryColor : Colors.grey.shade300,
             ),
           ),
         ),
         onPressed: _onTap,
-        child: Image.asset(assetPath, height: 18),
+        child: Image.asset(assetName.assetPath, height: 18),
       ),
     );
   }

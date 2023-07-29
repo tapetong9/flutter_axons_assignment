@@ -1,3 +1,4 @@
+import 'package:axons_flutter/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 
 class TextInputField extends StatefulWidget {
@@ -49,7 +50,7 @@ class _TextInputFieldState extends State<TextInputField> {
       focusNode: widget.focusNode,
       obscureText: _isObscure,
       initialValue: widget.initialValue,
-      style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: textColor),
+      style: context.textTheme.bodyMedium?.copyWith(color: textColor),
       validator: widget.validator,
       decoration: InputDecoration(
         filled: true,
@@ -61,7 +62,7 @@ class _TextInputFieldState extends State<TextInputField> {
           borderRadius: const BorderRadius.all(Radius.circular(8.0)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 1.0),
+          borderSide: BorderSide(color: context.theme.primaryColor, width: 1.0),
           borderRadius: const BorderRadius.all(Radius.circular(8.0)),
         ),
         suffixIcon: widget.obscureText

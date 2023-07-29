@@ -1,5 +1,8 @@
 import 'dart:async';
 
+import 'package:axons_flutter/extensions/context_extensions.dart';
+import 'package:axons_flutter/screens/authenication/registration_stepper_screen.dart';
+import 'package:axons_flutter/utils/navigation/navigate_util.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import '../../utils/validator/form_validator.dart';
@@ -47,12 +50,12 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
             children: [
               Text(
                 tr("otp_verification_page.title"),
-                style: Theme.of(context).textTheme.titleLarge,
+                style: context.textTheme.titleLarge,
               ),
               const VSpacer(8.0),
               Text(
                 tr("otp_verification_page.subtitle"),
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.blueGrey),
+                style: context.textTheme.bodyMedium?.copyWith(color: Colors.blueGrey),
                 textAlign: TextAlign.center,
               ),
               const VSpacer(29.0),
@@ -90,7 +93,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
               if (!_canRequestOtp)
                 Text(
                   tr("otp_verification_page.countdown_message", args: [_countDuration.toString()]),
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.blueGrey),
+                  style: context.textTheme.bodyMedium?.copyWith(color: Colors.blueGrey),
                   textAlign: TextAlign.center,
                 ),
             ],
@@ -126,5 +129,9 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
     });
   }
 
-  void _onTapSubmitButton() {}
+  void _onTapSubmitButton() {
+    // 1. Validate % verify
+    // 2. Route to next screen
+    NavigateUtil().push(context, to: const RegistrationStepperScreen());
+  }
 }

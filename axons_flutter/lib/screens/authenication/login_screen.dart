@@ -1,3 +1,5 @@
+import 'package:axons_flutter/extensions/context_extensions.dart';
+import 'package:axons_flutter/extensions/image_extensions.dart';
 import 'package:axons_flutter/screens/authenication/register_screen.dart';
 import 'package:axons_flutter/screens/home/home_screen.dart';
 import 'package:axons_flutter/utils/navigation/navigate_util.dart';
@@ -30,16 +32,16 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Image.asset("assets/images/branding_logo_1by1.png", width: 120),
+              Image.asset("branding_logo_1by1.png".assetPath, width: 120),
               const VSpacer(24),
               Text(
                 tr("login_page.title"),
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.white),
+                style: context.textTheme.titleLarge?.copyWith(color: Colors.white),
               ),
               const VSpacer(8),
               Text(
                 tr("login_page.subtitle"),
-                style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
+                style: context.textTheme.bodyLarge?.copyWith(color: Colors.white),
                 textAlign: TextAlign.center,
               ),
               const VSpacer(62),
