@@ -71,7 +71,7 @@ class _CreatePinCodeScreenState extends State<CreatePinCodeScreen> {
     );
   }
 
-  void _onSelected(value) {
+  void _onSelected(value) async {
     if (value == -1) {
       if (_pincode.isNotEmpty) {
         setState(() {
@@ -90,6 +90,8 @@ class _CreatePinCodeScreenState extends State<CreatePinCodeScreen> {
     }
 
     if (_pincode.length == 4) {
+      await Future.delayed(const Duration(milliseconds: 100));
+
       if (_tmpPincode.isEmpty) {
         setState(() {
           _tmpPincode = [..._pincode];

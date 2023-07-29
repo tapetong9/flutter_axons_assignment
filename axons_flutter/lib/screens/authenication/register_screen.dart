@@ -140,7 +140,8 @@ class _RegisterFormScreenState extends State<RegisterFormScreen> {
   void _onTapSubmitButton() {
     FocusScope.of(context).unfocus();
 
-    // if (_formKey.currentState!.validate()) {}
-    NavigateUtil().push(context, to: const PolicyAndConditionScreen());
+    if (_formKey.currentState!.validate()) {
+      NavigateUtil().push(context, to: const PolicyAndConditionScreen());
+    }
   }
 }

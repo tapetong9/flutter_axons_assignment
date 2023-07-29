@@ -40,14 +40,14 @@ class PrimaryButton extends StatelessWidget {
   FilledButton _buildButton(BuildContext context) {
     if (icon != null) {
       return FilledButton.icon(
-        onPressed: _onPress,
+        onPressed: disabled ? null : onPressed,
         style: _buttonStyle(context),
         label: Text(title),
         icon: icon!,
       );
     } else {
       return FilledButton(
-        onPressed: _onPress,
+        onPressed: disabled ? null : onPressed,
         style: _buttonStyle(context),
         child: Text(title),
       );
@@ -65,11 +65,5 @@ class PrimaryButton extends StatelessWidget {
       backgroundColor: (theme == PrimaryButtonTheme.primary) ? context.theme.primaryColor : Colors.white,
       foregroundColor: (theme == PrimaryButtonTheme.primary) ? Colors.white : context.theme.primaryColor,
     );
-  }
-
-  void _onPress() {
-    if (!disabled) {
-      onPressed!();
-    }
   }
 }

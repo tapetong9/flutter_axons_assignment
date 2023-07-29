@@ -16,7 +16,7 @@ class HorizontalImageSliderBanner extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(right: 8),
-            child: Image.asset(assetsPaths[index], width: 160, height: 160),
+            child: Image.asset(assetsPaths[index], width: 160, height: 160, fit: BoxFit.fill),
           );
         },
       ),

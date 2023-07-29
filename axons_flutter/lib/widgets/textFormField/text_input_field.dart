@@ -9,6 +9,7 @@ class TextInputField extends StatefulWidget {
   final FocusNode? focusNode;
   final String? Function(String?)? validator;
   final Widget? prefixIcon;
+  final TextInputType? keyboardType;
   final Function(String)? onChanged;
   final Function()? onEditingComplete;
   final Function(String)? onFieldSubmitted;
@@ -25,6 +26,7 @@ class TextInputField extends StatefulWidget {
     this.onChanged,
     this.onEditingComplete,
     this.onFieldSubmitted,
+    this.keyboardType,
   });
 
   @override
@@ -54,6 +56,7 @@ class _TextInputFieldState extends State<TextInputField> {
       initialValue: widget.initialValue,
       style: context.textTheme.bodyMedium?.copyWith(color: textColor),
       validator: widget.validator,
+      keyboardType: widget.keyboardType,
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white,
@@ -65,6 +68,18 @@ class _TextInputFieldState extends State<TextInputField> {
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: context.theme.primaryColor, width: 1.0),
+          borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.grey.shade400, width: 1.0),
+          borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: context.theme.primaryColor, width: 1.0),
+          borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+        ),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.grey.shade400, width: 1.0),
           borderRadius: const BorderRadius.all(Radius.circular(8.0)),
         ),
         suffixIcon: widget.obscureText

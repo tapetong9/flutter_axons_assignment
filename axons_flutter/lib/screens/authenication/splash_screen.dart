@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
       final firstScreen = state.status.firstScreen;
 
       Future.delayed(const Duration(seconds: 2)).then(
-        (_) => NavigateUtil().push(context, to: firstScreen, type: PushType.clearStack),
+        (_) => NavigateUtil().push(context, to: firstScreen, type: PushType.push),
       );
     });
   }

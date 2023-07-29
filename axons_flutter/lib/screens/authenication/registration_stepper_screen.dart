@@ -21,6 +21,7 @@ class RegistrationStepperScreen extends StatefulWidget {
 
 class _RegistrationStepperScreenState extends State<RegistrationStepperScreen> {
   bool _approved = false;
+  final player = AudioPlayer();
 
   @override
   Widget build(BuildContext context) {
@@ -129,7 +130,6 @@ class _RegistrationStepperScreenState extends State<RegistrationStepperScreen> {
     }
 
     try {
-      final player = AudioPlayer();
       await player.play(AssetSource('audios/success.mp3'), volume: 0.5);
       await Future.delayed(const Duration(milliseconds: 200));
       setState(() {});

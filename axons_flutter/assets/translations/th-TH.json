@@ -38,8 +38,8 @@
         "cancel_button": "ยกเลิก"
     },
     "create_pin_code_page": {
-        "title": "สร้างรหัส Pincode 4",
-        "title_confirm": "สร้างรหัส Pincode 4 อีกครั้ง",
+        "title": "สร้างรหัส Pincode 4 หลัก",
+        "title_confirm": "สร้างรหัส Pincode 4 หลัก อีกครั้ง",
         "subtitle": "เพื่อรักษาข้อมูลของคุณให้ปลอดภัย",
         "error": "รหัสไม่ตรงกัน กรุณาลองใหม่อีกครั้ง"
     },

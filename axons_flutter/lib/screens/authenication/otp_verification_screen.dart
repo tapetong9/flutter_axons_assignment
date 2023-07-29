@@ -29,6 +29,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
   void initState() {
     super.initState();
     _countDuration = _initialDuration;
+    _onTapRequestOtpButton();
   }
 
   @override
@@ -68,6 +69,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                       placeholderText: tr("otp_verification_page.placeholder"),
                       autofocus: true,
                       validator: FormValidator.required,
+                      keyboardType: const TextInputType.numberWithOptions(decimal: false),
                       onChanged: _onTextUpdated,
                       onFieldSubmitted: (_) => _onTapRequestOtpButton,
                     ),

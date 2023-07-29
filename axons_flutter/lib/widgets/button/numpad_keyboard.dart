@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:axons_flutter/widgets/button/numpad_button.dart';
 import 'package:flutter/material.dart';
 
@@ -50,7 +51,11 @@ class NumpadKeyboard extends StatelessWidget {
     );
   }
 
-  void _onSelectedButton(value) {
+  void _onSelectedButton(value) async {
+    final player = AudioPlayer();
+    await player.play(AssetSource('audios/button_click.wav'), volume: 0.3);
+    await Future.delayed(const Duration(milliseconds: 200));
     onSelected(value);
+    player.dispose();
   }
 }

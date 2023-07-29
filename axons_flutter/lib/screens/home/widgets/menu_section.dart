@@ -44,7 +44,7 @@ class MenuSection extends StatelessWidget {
               ],
             ),
           ),
-          const VSpacer(10.0),
+          const VSpacer(16.0),
           content,
         ],
       ),

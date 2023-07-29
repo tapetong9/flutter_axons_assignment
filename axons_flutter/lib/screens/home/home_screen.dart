@@ -107,6 +107,9 @@ class _HomeScreenState extends State<HomeScreen> {
               view: "2.5k",
               date: "3 Nov 2022",
             ),
+            const VSpacer(16.0),
+            const Divider(),
+            const VSpacer(16.0),
             NewsItem(
               assetPath: "news_banner2.png".assetPath,
               title: "Hack for GOOD Well-Being Creation นวัตกรรมดีเมืองดี..",

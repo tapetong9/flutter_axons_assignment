@@ -1,7 +1,15 @@
 import 'package:axons_flutter/extensions/context_extensions.dart';
+import 'package:axons_flutter/my_app.dart';
+import 'package:axons_flutter/screens/authenication/login_screen.dart';
+import 'package:axons_flutter/screens/authenication/splash_screen.dart';
 import 'package:axons_flutter/screens/home/home_screen.dart';
+import 'package:axons_flutter/utils/navigation/navigate_util.dart';
+import 'package:axons_flutter/widgets/button/primary_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../blocs/authenication/auth_bloc.dart';
 
 class MainTabbarScreen extends StatefulWidget {
   const MainTabbarScreen({super.key});
@@ -14,17 +22,29 @@ class _MainTabbarScreenState extends State<MainTabbarScreen> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-  final List<Widget> _widgetOptions = <Widget>[
-    const HomeScreen(),
-    Text(tr("tabbar.market"), style: optionStyle),
-    Text(tr("tabbar.shrimp_farm"), style: optionStyle),
-    Text(tr("tabbar.account"), style: optionStyle),
-  ];
+  List<Widget> _widgetOptions = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    _widgetOptions = <Widget>[
+      const HomeScreen(),
+      Text(tr("tabbar.market"), style: optionStyle),
+      Text(tr("tabbar.shrimp_farm"), style: optionStyle),
+      PrimaryButton(title: "Logout", fitWidth: true, onPressed: _logout),
+    ];
+  }
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
+  }
+
+  _logout() {
+    context.read<AuthBloc>().add(LogoutRequested());
+    NavigateUtil().push(context, to: const LoginScreen(), type: PushType.clearStack);
   }
 
   @override
