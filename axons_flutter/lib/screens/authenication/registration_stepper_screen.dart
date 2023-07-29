@@ -1,9 +1,9 @@
 import 'dart:developer';
-
 import 'package:axons_flutter/enums/registration_stepper_enum.dart';
 import 'package:axons_flutter/extensions/context_extensions.dart';
 import 'package:axons_flutter/extensions/image_extensions.dart';
 import 'package:axons_flutter/screens/authenication/widgets/registration_stepper_item.dart';
+import 'package:axons_flutter/screens/home/home_screen.dart';
 import 'package:axons_flutter/utils/navigation/navigate_util.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:audioplayers/audioplayers.dart';
@@ -82,7 +82,7 @@ class _RegistrationStepperScreenState extends State<RegistrationStepperScreen> {
           const RegistrationStepperItem(status: RegistrationStepperEnum.registered),
           _buildDivider(true),
           const RegistrationStepperItem(status: RegistrationStepperEnum.waiting),
-          _buildDivider(false),
+          _buildDivider(_approved),
           RegistrationStepperItem(status: _approved ? RegistrationStepperEnum.approved : RegistrationStepperEnum.unapproved),
         ],
       ),
@@ -122,9 +122,11 @@ class _RegistrationStepperScreenState extends State<RegistrationStepperScreen> {
   }
 
   void _onTapSelfApproveButton() async {
-    if (_approved) return;
-
-    _approved = true;
+    if (_approved) {
+      return;
+    } else {
+      _approved = true;
+    }
 
     try {
       final player = AudioPlayer();
@@ -134,7 +136,7 @@ class _RegistrationStepperScreenState extends State<RegistrationStepperScreen> {
 
       Future.delayed(const Duration(milliseconds: 2000)).then(
         (_) {
-          NavigateUtil().pop(context);
+          NavigateUtil().push(context, to: const HomeScreen(), type: PushType.clearStack);
         },
       );
     } catch (e) {

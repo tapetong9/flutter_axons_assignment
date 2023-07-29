@@ -8,6 +8,7 @@ class TextInputField extends StatefulWidget {
   final bool autofocus;
   final FocusNode? focusNode;
   final String? Function(String?)? validator;
+  final Widget? prefixIcon;
   final Function(String)? onChanged;
   final Function()? onEditingComplete;
   final Function(String)? onFieldSubmitted;
@@ -18,6 +19,7 @@ class TextInputField extends StatefulWidget {
     this.obscureText = false,
     this.placeholderText,
     this.autofocus = false,
+    this.prefixIcon,
     this.focusNode,
     this.validator,
     this.onChanged,
@@ -71,6 +73,7 @@ class _TextInputFieldState extends State<TextInputField> {
                 icon: Icon(_isObscure ? Icons.visibility_off : Icons.visibility, size: 24.0),
               )
             : null,
+        prefixIcon: widget.prefixIcon,
       ),
     );
   }

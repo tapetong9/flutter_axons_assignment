@@ -61,5 +61,28 @@
         "title": "รอเจ้าหน้าที่ติดต่อกลับ\nเพื่อทำการอนุมัติ",
         "subtitle": "ขณะนี้ระบบกำลังทำการตรวจการลงทะเบียนของท่าน\nกรุณารอพนักงานฝ่ายขายติดต่อกลับ\nเพื่อสร้าง CV ให้กับคุณภายใน 24 ชั่วโมง",
         "back_button": "กลับสู่หน้าหลัก"
+    },
+    "home_page": {
+        "see_all": "ดูทั้งหมด",
+        "read_more": "อ่านเพิ่มเติม",
+        "search_placeholder": "Search",
+        "main_menu": {
+            "farm_analytic": "วิเคราะห์ประเมินฟาร์ม",
+            "customer_privilege": "สิทธิพิเศษสำหรับลูกค้า"
+        },
+        "my_app_title": "แอปของฉัน",
+        "my_app_menu": {
+            "smart_farm": "Smart Farm Simple",
+            "market_plan": "Market Plan",
+            "customer_feedback": "Customer Feedback"
+        },
+        "my_privilege_title": "สิทธิประโยชน์เฉพาะคุณ",
+        "news_title": "ข่าวประชาสัมพันธ์"
+    },
+    "tabbar": {
+        "home": "หน้าหลัก",
+        "market": "ตลาดกลาง",
+        "shrimp_farm": "ฟาร์มกุ้ง",
+        "account": "บัญชี"
     }
 }
